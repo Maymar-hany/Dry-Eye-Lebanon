@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" >
+        <title>Eye Care</title>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        
+      </head>
+  <body>
+
+<div id="wrapper">
+  <div  class="row no-gutters">
+    <audio id="intro" src="intro.mp3" type="audio/mp3"  mute="true"></audio> 
+    <div id="header" class="col-12" >
+      <img id="head" src="images/logo.svg">
+    
+      <div id="time" class="row">
+       <div>
+        <img id="restart" src="images/restart-button.png" class="img-fluid" onClick="window.location.href=window.location.href">
+       </div>
+       <div >
+        <p id="time-txt" class="text-center ">SCORE</p>
+        <img src="images/left-score.svg" class="img-height">
+        <label id="score-label"> <text id="score">0</text>/4</label>
+        <img src="images/right-score.svg"  class="img-height">
+       </div>
+    </div>
+    </div>
+  </div>
+  <div class="m-1">
+    
+    <div id="game" class="row no-gutters content-site">
+  
+  <div class=" col-sm-2 ">
+      <div id="patients" class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 p-0">
+          <h2 id="patient-txt" >INDICATIONS</h2>
+        </div>
+      </div>
+  </div>
+
+  <div id="container" class="col-md-8 col-sm-8 " >
+    <div class=" col-md-12 col-sm-12 dropzone">
+  <div class="row no-gutters d-flex align-items-center justify-content-center">
+    <div id="error-div" class="row msg-div">
+      <div id="error-icon" class="col-md-2 col-sm-2 icon-msg" >
+        <img src="images/cancel.svg" class="img-fluid">
+      </div>
+      <div id="error-txt" class="col-md-10 col-sm-10 msg">
+        <p class="text-center message">Can't be compined please try again</p>
+      </div>
+     </div>
+     <div id="found-div" class="row msg-div">
+      <div id="found-icon" class="col-md-2 col-sm-2 icon-msg" >
+        <img src="images/information.svg" class="img-fluid">
+      </div>
+      <div id="found-txt" class=" col-md-10 col-sm-10 msg">
+        <p  class="text-center message">Product Is Already Found</p>
+       </div>
+     </div>
+     <div id="warn-div" class="row msg-div">
+      <div id="warn-icon" class="col-md-2 col-sm-2 icon-msg" >
+        <img src="images/warning.svg" class="img-fluid">
+      </div>
+      <div id="warn-txt" class="col-md-10 col-sm-10 msg">
+        <p  class="text-center message">Choose One More component</p>
+       </div>
+     </div>
+     <div id="notallowed-div" class="row msg-div">
+      <div id="notallowed-icon" class="col-md-2 col-sm-2 icon-msg" >
+        <img  src="images/cancel.svg" class="img-fluid">
+      </div>
+      <div id="notallowed-txt" class=" col-md-10 col-sm-10 msg">
+        <p  class="text-center message">No More Components Allowed</p>
+      </div>
+     </div> 
+      <div id="labzone">
+
+            <div id="guide">
+              <img src="images/tap.svg" class="img-fluid">
+              <p class="guide-txt">Use your mouse to drag and drop 2-3
+                components to get your product</p>
+            </div> 
+        
+            <button id="resetbtn" onclick="reset()"></button>
+          
+            <div  class="container">
+             <div class="row d-flex align-items-center ">
+              <div id="medicine" class="col-md-2 col-sm-2">
+                  
+              </div>
+              <div id="hint" class="col-md-10 col-sm-10">
+              <img id="hintImg" src="images/hint.svg">
+              <p class="centered">Use your mouse to drag the 
+                product to match with the 
+                correct indication</p>
+              </div>
+             </div>
+            </div>
+                  
+              
+              </div> 
+          
+        </div>
+      </div>
+    </div>
+    <div>
+      
+    </div>
+ 
+      
+
+  <!-- <div id="logo"></div>
+   -->
+  <div  class=" col-sm-2">
+
+      <div id="compounds" class=" col-md-12 col-sm-12 ">
+        <div id="compoundszone" class="col-md-12 col-sm-12 p-0" >
+          <h2 id="comp-txt" >COMPONENTS</h2>
+        </div>
+       
+      </div>
+    
+  
+</div>
+<div id="product-tile" class="col-md-10 col-sm-10 d-flex ">
+  <div id="products-div" >
+   <div id="foot " class="col-md-3 col-sm-3 p-0">
+     <img src="images/foot-logo.png"  id="foot-img" class="w-50">
+   </div>
+     <div  class=" col-md-8 col-sm-8 ">
+       <div id="products" class="row d-flex justify-content-center align-items-center">
+
+       </div>
+     </div>
+   <div >
+
+   </div>
+  </div>
+ </div>
+
+<div id="" class="modal">
+  <div class="modal-background ">
+    
+  </div>
+  <div id="wins" class="modal-content text-center">
+   
+      
+        <button class="modal-close is-large" aria-label="close" onclick="closefinalscore()"></button>
+        
+         
+        
+      
+  </div>
+</div>
+  
+<!--   <div id="relieved-div" class="modal">
+  <div class="modal-background is-mobile">
+    
+  </div>
+  <div id="relieved" class="modal-content has-text-centered">
+    <div id="closeDiv" onclick="closeresult()">
+
+    </div>
+      
+        <p id="result-txt"> Result </p>
+         <p id="result-txt"  class=" title"> Relieved </p>
+           
+  </div>
+</div>  --> 
+
+
+ <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="winner" tabindex="-1" >
+<div class="modal-dialog  modal-dialog-centered text-center">
+  
+    <div class="modal-body">
+      <div class="modal-content">
+        <h1 id="result-txt"  class=" font-weight-bold">   Winner !</h1>
+        <p id="result-txt">Score: <label id="sc"></label> </p>
+        <button  class="amount-btn" onClick="window.location.href=window.location.href">Play Again</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div class="modal fade" id="relieved" tabindex="-1" >
+<div class="modal-dialog  modal-dialog-centered text-center">
+  
+    <div class="modal-body">
+      <p id="result-txt"> Relieved </p>
+    </div>
+    
+  </div>
+</div>
+<div class="modal fade" id="suffer-div" tabindex="-1" >
+  <div class="modal-dialog  modal-dialog-centered text-center">
+    
+      <div class="modal-body">
+        <p id="result-txt">Still Suffering! </p>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="description-div" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
+    <div class="modal-dialog  modal-dialog-centered text-center">
+      
+        <div class="modal-content">
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">&times</button>
+          <img  id="description" class="img-fluid" >
+        </div>
+        
+      </div>
+    </div>
+<!-- Button trigger modal -->
+
+
+</div>
+
+    </div>
+  
+  
+
+<div class="modal fade show srt " id="startgame" tabindex="-1">
+
+   
+      <div class="text-center">
+        
+        <img id="strt" src="images/button-start.svg" onclick="startGame()" width="15%" >
+      </div>
+      <div id="foot" class="col-md-2 col-sm-2 d-flex align-items-end">
+        <img src="images/foot-logo.png" class="img-fluid">
+      </div>
+
+  </div>
+<!-- <embed src='SoundURLHere' autostart='true' hidden='true' loop='false' name="jukebox"> -->
+
+
+</div>
+ 
+
+<div id="snackbar"></div>
+
+</div>
+<div id="warning-message">
+  This website is only viewable in landscape mode
+</div>
+</body>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="wow.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+ <script src="script.js"></script> 
+</html>
+
+
